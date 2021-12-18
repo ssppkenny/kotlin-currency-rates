@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.databinding.FragmentFirstBinding
 
@@ -72,11 +73,14 @@ class FirstFragment : Fragment() {
         }
 
         binding.buttonFirst.setOnClickListener {
-
-           val bundle = Bundle()
-            bundle.putString("curFrom", curFrom);
-            bundle.putString("curTo", curTo);
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
+            if (curFrom != curTo) {
+                val bundle = Bundle()
+                bundle.putString("curFrom", curFrom);
+                bundle.putString("curTo", curTo);
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
+            } else {
+                Toast.makeText(view.context,"Please choose different currencies",Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
