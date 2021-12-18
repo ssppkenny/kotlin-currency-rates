@@ -25,7 +25,7 @@ class FirstFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    val listOfCurrencies = arrayOf("CHF", "RUB")
+    val listOfCurrencies = arrayOf("CHF", "RUB", "USD", "EUR", "SEK")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

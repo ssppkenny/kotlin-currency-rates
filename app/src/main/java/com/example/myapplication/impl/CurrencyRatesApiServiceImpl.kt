@@ -15,6 +15,14 @@ import java.io.IOException
 
 class CurrencyRatesApiServiceImpl : CurrencyRatesApiService {
     private val api: CurrencyRatesApiService.Api
+
+    fun minusOneMonth(day: Int?, month: Int?, year:Int?) : Triple<Int,Int,Int> {
+        if (month == 1) {
+            return Triple(day!!, 12, year!! - 1)
+        }
+        return Triple(day!!,month!! - 1,year!!)
+    }
+
     override fun getRates(
         curFrom: String?,
         curTo: String?,
@@ -24,8 +32,11 @@ class CurrencyRatesApiServiceImpl : CurrencyRatesApiService {
     ): String? {
         val d = String.format("%02d", day)
         val m = String.format("%02d", month)
+        val t = minusOneMonth(day, month, year)
+
+        val m1 = String.format("%02d", t.second)
         val callRates: Call<ResponseBody?>? =
-            api.getRates(curFrom, curTo, d, d, m, m, year!!.minus(1), year)
+            api.getRates(curFrom, curTo, d, d, m1, m, t.third, year!!)
         try {
             val execute = callRates?.execute()
             if (execute!!.isSuccessful) {

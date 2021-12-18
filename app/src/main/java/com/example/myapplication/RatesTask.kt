@@ -32,7 +32,7 @@ class RatesTask(val fragment : SecondFragment)  : AsyncTask<Parameters, Void, St
             values.add(java.lang.Double.valueOf(columns.get(1).text()))
         }
 
-        println(values)
+        values.reverse()
 
         fragment.plot(values)
 

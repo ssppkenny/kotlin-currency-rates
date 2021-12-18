@@ -74,6 +74,7 @@ class SecondFragment : Fragment() {
             entries.add(Entry(i.toFloat(), e.toFloat()))
         }
         val dataset = LineDataSet(entries, "Rates")
+        dataset.setDrawCircles(false)
         val chart = getView()?.findViewById<LineChart>(R.id.ratesChart);
 
         chart!!.data = LineData(listOf(dataset))

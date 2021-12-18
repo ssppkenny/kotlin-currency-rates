@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/id_recycle_view"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="visible"
-    tools:context=".FirstFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/id_cur_from"
-        android:layout_width="401dp"
-        android:layout_height="324dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:choiceMode="singleChoice"
-        android:listSelector="@color/purple_200"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        android:color="#fe0315"
+        android:listSelector="@color/purple_200">
+
+    </ListView>
 
     <ListView
         android:id="@+id/id_cur_to"
-        android:layout_width="399dp"
-        android:layout_height="338dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:choiceMode="singleChoice"
-        android:listSelector="@color/purple_200"
-        app:layout_constraintTop_toBottomOf="@+id/id_cur_from"
-        tools:layout_editor_absoluteX="1dp" />
+        android:color="#fe0315"
+        android:listSelector="@color/purple_200" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/button_first"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next" />
+
+
+</LinearLayout>
